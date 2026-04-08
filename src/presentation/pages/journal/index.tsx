@@ -17,49 +17,51 @@ const JournalPage: React.FC = () => {
   } = useJournal();
 
   return (
-    <div className="journal-page achim-journal-scope">
-      <AnimatePresence mode="wait">
-        {!selectedArticle ? (
-          <motion.div
-            key="list"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <header className="journal-header">
-              <TagNavigation
-                tags={tags}
-                selectedTag={selectedTag}
-                onTagClick={handleTagClick}
-              />
-            </header>
-            
-            <main className="journal-grid">
-              {journals.map((journal) => (
-                <JournalCard
-                  key={journal.id}
-                  journal={journal}
-                  onClick={handleArticleClick}
+    <div className="achim-journal-scope">
+      <div className="journal-page">
+        <AnimatePresence mode="wait">
+          {!selectedArticle ? (
+            <motion.div
+              key="list"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <header className="journal-header">
+                <TagNavigation
+                  tags={tags}
+                  selectedTag={selectedTag}
+                  onTagClick={handleTagClick}
                 />
-              ))}
-            </main>
-          </motion.div>
-        ) : (
-          <motion.div
-            key="detail"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <ReaderFrame
-              article={selectedArticle}
-              onBack={handleBackToList}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+              </header>
+              
+              <main className="journal-grid">
+                {journals.map((journal) => (
+                  <JournalCard
+                    key={journal.id}
+                    journal={journal}
+                    onClick={handleArticleClick}
+                  />
+                ))}
+              </main>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="detail"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <ReaderFrame
+                article={selectedArticle}
+                onBack={handleBackToList}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </div>
   );
 };
