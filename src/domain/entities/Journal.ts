@@ -11,6 +11,7 @@ export interface Journal {
   coverImage: string;
   tags: string[]; // Tag slugs
   publishedAt: string;
+  relatedArticleIds: string[];
 }
 
 export interface JournalDetail extends Journal {
