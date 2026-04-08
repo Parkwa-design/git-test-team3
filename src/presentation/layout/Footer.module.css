@@ -1,0 +1,138 @@
+.footer {
+  background-color: var(--background);
+  color: var(--foreground);
+  border-top: 1px solid var(--border);
+  padding: var(--spacing-xl) 0 0 0;
+}
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.brandCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.brandTitle {
+  font-family: 'Cardo', serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.4;
+  margin-bottom: var(--spacing-lg);
+  letter-spacing: -0.01em;
+}
+
+.illustration {
+  width: 140px;
+  height: auto;
+  opacity: 0.8;
+  mix-blend-mode: multiply;
+}
+
+.ctaCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--spacing-xl);
+  padding: 0 var(--spacing-lg);
+  padding-top: var(--spacing-md);
+}
+
+.ctaBox {
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+}
+
+.ctaDesc {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.ctaBtn {
+  width: 100%;
+  padding: 16px 0;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  background-color: transparent;
+  color: var(--foreground);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ctaBtn:hover {
+  background-color: var(--foreground);
+  color: var(--white);
+}
+
+.linksCol {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-xl);
+}
+
+.linkGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.linkTitle {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+}
+
+.linkGroup ul li {
+  margin-bottom: 12px;
+}
+
+.linkGroup ul li a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--foreground);
+  transition: opacity 0.3s ease;
+}
+
+.linkGroup ul li a:hover {
+  opacity: 0.6;
+}
+
+.bottom {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+  display: flex;
+  justify-content: center;
+}
+
+.companyInfo {
+  font-size: 11px;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--foreground);
+}
+
+.copyright {
+  margin-top: 8px;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+  .linksCol {
+    justify-content: flex-start;
+  }
+}

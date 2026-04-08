@@ -1,0 +1,72 @@
+.section {
+  padding: var(--spacing-section) 0;
+  background-color: var(--background);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  align-items: center;
+  gap: var(--spacing-xl);
+}
+
+.imageWrapper {
+  width: 100%;
+}
+
+.mainImage {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.tag {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: var(--spacing-lg);
+  letter-spacing: -0.01em;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 2.0; /* Generous line-height as requested */
+  color: var(--muted);
+  margin-bottom: var(--spacing-md);
+}
+
+.signature {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border);
+  display: inline-block;
+  width: fit-content;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+}
