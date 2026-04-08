@@ -1,24 +1,73 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Pretendard:wght@400;600&display=swap');
 
-@layer base {
-  body {
-    @apply bg-background text-textMain antialiased;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-serif font-light;
-  }
-  
-  /* Minimalist button baseline */
-  button {
-    @apply transition-colors duration-200;
-  }
+:root {
+  --achim-bg: #ffffff;
+  --achim-fg: #1a1a1a;
+  --achim-accent: #8b8b8b;
+  --achim-border: #efefef;
+  --achim-serif: 'Noto Serif KR', serif;
+  --achim-sans: 'Pretendard', sans-serif;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 32px;
+  --spacing-xl: 64px;
 }
 
-@layer utilities {
-  .border-editorial {
-    @apply border-borderLight border-solid;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--achim-bg);
+  color: var(--achim-fg);
+  font-family: var(--achim-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+h1, h2, h3, .serif {
+  font-family: var(--achim-serif);
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Custom Scrollbar for Achim Vibe */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--achim-border);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--achim-accent);
 }
