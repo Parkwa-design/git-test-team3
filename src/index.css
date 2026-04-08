@@ -2,18 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  body {
-    @apply bg-background text-textMain antialiased;
-  }
+:root {
+  --achim-bg: #ffffff;
+  --achim-fg: #1a1a1a;
+  --achim-accent: #666666;
+  --achim-border: #efefef;
   
+  --achim-serif: "Noto Serif KR", serif;
+  --achim-sans: "Noto Sans KR", sans-serif;
+  
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 32px;
+  --spacing-xl: 64px;
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: var(--achim-bg);
+    color: var(--achim-fg);
+    font-family: var(--achim-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .serif {
+    font-family: var(--achim-serif);
+  }
+
+  /* JH's Tailwind extensions */
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif font-light;
-  }
-  
-  /* Minimalist button baseline */
-  button {
-    @apply transition-colors duration-200;
   }
 }
 
