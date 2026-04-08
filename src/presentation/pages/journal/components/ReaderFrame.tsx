@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { ChevronLeft, Share2, Bookmark } from 'lucide-react';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import type { Journal } from '../../../../domain/entities/Journal';
+import { JOURNALS } from '../../../../infrastructure/mocks/journalData';
+import { JournalCard } from './JournalCard';
 
 interface ReaderFrameProps {
   article: Journal;
@@ -8,12 +11,25 @@ interface ReaderFrameProps {
 }
 
 export const ReaderFrame: React.FC<ReaderFrameProps> = ({ article, onBack }) => {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  const relatedArticles = JOURNALS.filter(j => 
+    article.relatedArticleIds.includes(j.id)
+  );
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [article.id]);
 
   return (
     <div className="reader-frame">
+      <motion.div className="progress-bar" style={{ scaleX }} />
+
       <header className="reader-header">
         <button onClick={onBack} className="back-button">
           <ChevronLeft size={20} />
@@ -60,6 +76,17 @@ export const ReaderFrame: React.FC<ReaderFrameProps> = ({ article, onBack }) => 
               <span key={tag} className="tag-item">#{tag}</span>
             ))}
           </div>
+          
+          <section className="related-section">
+            <h4 className="section-title serif">Related Articles</h4>
+            <div className="related-grid">
+              {relatedArticles.map(item => (
+                <JournalCard key={item.id} journal={item} onClick={() => {
+                  window.scrollTo(0, 0);
+                }} />
+              ))}
+            </div>
+          </section>
         </footer>
       </main>
     </div>

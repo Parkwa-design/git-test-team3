@@ -16,6 +16,7 @@ export const JOURNALS: Journal[] = [
     coverImage: '/images/cover-24.png',
     tags: ['morning', 'life'],
     publishedAt: '2026.04.01',
+    relatedArticleIds: ['vol-23', 'vol-21'],
   },
   {
     id: 'vol-23',
@@ -24,6 +25,7 @@ export const JOURNALS: Journal[] = [
     coverImage: '/images/cover-23.png',
     tags: ['life', 'essay'],
     publishedAt: '2026.03.15',
+    relatedArticleIds: ['vol-24', 'vol-21'],
   },
   {
     id: 'vol-22',
@@ -32,6 +34,7 @@ export const JOURNALS: Journal[] = [
     coverImage: '/images/cover-22.png',
     tags: ['interview'],
     publishedAt: '2026.02.28',
+    relatedArticleIds: ['vol-24', 'vol-23'],
   },
   {
     id: 'vol-21',
@@ -40,5 +43,6 @@ export const JOURNALS: Journal[] = [
     coverImage: '/images/cover-21.png',
     tags: ['morning', 'essay'],
     publishedAt: '2026.02.10',
+    relatedArticleIds: ['vol-24', 'vol-22'],
   },
 ];
