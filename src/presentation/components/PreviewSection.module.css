@@ -1,0 +1,132 @@
+.section {
+  padding: var(--spacing-section) 0;
+  background-color: var(--background);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--foreground);
+}
+
+.sectionTitle {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: var(--letter-spacing-wide);
+  color: var(--foreground);
+}
+
+.viewAll {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  transition: color 0.3s ease;
+}
+
+.viewAll:hover {
+  color: var(--primary);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr; /* Asymmetric */
+  gap: var(--spacing-xl);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.featured {
+  grid-row: span 2;
+}
+
+.featured .imageBox {
+  aspect-ratio: 16/10;
+}
+
+.featured .itemTitle {
+  font-size: 32px;
+  margin-top: var(--spacing-md);
+}
+
+.imageBox {
+  width: 100%;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--secondary);
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.card:hover .cardImage {
+  transform: scale(1.05);
+}
+
+.info {
+  padding: var(--spacing-md) 0;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.category {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--primary);
+}
+
+.date {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.itemTitle {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: var(--spacing-sm);
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .itemTitle {
+  opacity: 0.7;
+}
+
+.itemDesc {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--muted);
+  max-width: 90%;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .featured {
+    grid-row: auto;
+  }
+}
