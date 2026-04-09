@@ -43,7 +43,7 @@ export const MART_ITEMS: MartItem[] = [
     category: 'LIVING',
     date: '2026.03.15',
     price: '₩32,000',
-    image: 'https://images.unsplash.com/photo-1510443900742-02e0b533a016?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1590736704728-f4730bb30770?auto=format&fit=crop&q=80&w=800',
     tags: ['Kitchen', 'Living', 'Linen'],
     status: 'SOLD OUT',
     description: '부드러운 촉감과 빠른 건조 성능을 자랑합니다.',

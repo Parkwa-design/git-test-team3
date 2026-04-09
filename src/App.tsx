@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import JournalPage from './presentation/pages/journal';
 import AccountPage from './presentation/pages/account';
+import MartPage from './presentation/pages/mart';
 import './App.css';
 
 function App() {
@@ -20,8 +21,9 @@ function App() {
           zIndex: 1000
         }}>
           <Link to="/" style={{ fontWeight: 800, fontSize: '1.2rem', color: '#111', textDecoration: 'none' }}>ACHIM</Link>
-          <div style={{ display: 'flex', gap: '30px' }}>
+           <div style={{ display: 'flex', gap: '30px' }}>
             <Link to="/journal" style={{ color: '#555', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 500 }}>JOURNAL</Link>
+            <Link to="/mart" style={{ color: '#555', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 500 }}>MART</Link>
             <Link to="/account" style={{ color: '#555', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 500 }}>MY ACCOUNT</Link>
           </div>
         </nav>
@@ -38,6 +40,7 @@ function App() {
             </div>
           } />
           <Route path="/journal" element={<JournalPage />} />
+          <Route path="/mart" element={<MartPage />} />
           <Route path="/account" element={<AccountPage />} />
         </Routes>
       </div>
