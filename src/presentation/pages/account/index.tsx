@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 // -------------------------------------------------------------
 // Component: Sidebar Navigation
@@ -15,7 +16,7 @@ const SidebarNav = () => {
   return (
     <nav className="flex flex-col space-y-6 pt-4">
       {navItems.map((item, idx) => (
-        <a
+        <Link
           key={idx}
           href="#"
           className={`text-sm uppercase tracking-widest ${
@@ -23,7 +24,7 @@ const SidebarNav = () => {
           } transition-colors`}
         >
           {item.name}
-        </a>
+        </Link>
       ))}
     </nav>
   );
@@ -229,9 +230,9 @@ const AccountPage: React.FC = () => {
       <header className="border-b border-borderLight px-6 lg:px-16 py-8 flex justify-between items-center bg-white sticky top-0 z-10">
         <div className="font-serif text-2xl font-bold tracking-tighter">OPOET.</div>
         <div className="text-xs tracking-widest uppercase space-x-8 hidden md:block">
-          <a href="#" className="hover:text-gray-500">Magazine</a>
-          <a href="#" className="hover:text-gray-500">Shop</a>
-          <a href="#" className="hover:text-gray-500">About</a>
+          <Link href="/journal" className="hover:text-gray-500">Magazine</Link>
+          <Link href="/mart" className="hover:text-gray-500">Shop</Link>
+          <Link href="/about" className="hover:text-gray-500">About</Link>
         </div>
       </header>
 

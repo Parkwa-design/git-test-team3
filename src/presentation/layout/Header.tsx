@@ -32,6 +32,7 @@ export default function Header() {
         <nav className={styles.rightNav}>
           <Link href="/community">Community</Link>
           <Link href="/membership">Membership</Link>
+          <Link href="/account">Account</Link>
           <Link href="/register">Register</Link>
           <Link href="/login">Login</Link>
           <div className={styles.icons}>

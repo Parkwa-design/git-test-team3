@@ -1,3 +1,5 @@
+"use client";
+
 import { motion, AnimatePresence } from 'framer-motion';
 import { useJournal } from './hooks/useJournal';
 import { TagNavigation } from './components/TagNavigation';
