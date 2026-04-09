@@ -19,9 +19,8 @@ export default function Header() {
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
       <div className={styles.container}>
         <nav className={styles.leftNav}>
-          <Link href="/about">About</Link>
           <Link href="/provision">Provision</Link>
-          <Link href="/journal">Contents</Link>
+          <Link href="/journal">Journal</Link>
           <Link href="/mart">Mart</Link>
         </nav>
         
@@ -30,7 +29,6 @@ export default function Header() {
         </div>
         
         <nav className={styles.rightNav}>
-          <Link href="/community">Community</Link>
           <Link href="/membership">Membership</Link>
           <Link href="/account">Account</Link>
           <Link href="/register">Register</Link>

@@ -1,0 +1,844 @@
+/* ===================================================
+   Achim Membership Page — Scoped Styles
+   Benchmarked from: have-achim.com/membership
+   =================================================== */
+
+/* === Scope Protection === */
+.achim-membership-scope {
+  --ms-bg: #ffffff;
+  --ms-bg-soft: #fafafa;
+  --ms-fg: #111111;
+  --ms-fg-sub: #666666;
+  --ms-fg-muted: #999999;
+  --ms-accent: #E8742A;
+  --ms-accent-hover: #D4631F;
+  --ms-border: #eaeaea;
+  --ms-border-light: #f2f2f2;
+  --ms-serif: "Noto Serif KR", serif;
+  --ms-sans: "Noto Sans KR", sans-serif;
+
+  font-family: var(--ms-sans);
+  color: var(--ms-fg);
+  background: var(--ms-bg);
+}
+
+.achim-membership-scope * {
+  box-sizing: border-box;
+  box-shadow: unset !important; /* Override globals.css box-shadow:none */
+}
+
+/* Re-apply box-shadows where needed */
+.achim-membership-scope .plan-card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.06) !important;
+}
+.achim-membership-scope .plan-card--recommended {
+  box-shadow: 0 4px 24px rgba(232, 116, 42, 0.08) !important;
+}
+.achim-membership-scope .plan-card--recommended:hover {
+  box-shadow: 0 8px 32px rgba(232, 116, 42, 0.14) !important;
+}
+.achim-membership-scope .magazine-card:hover {
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08) !important;
+}
+
+/* =============================================
+   HERO SECTION
+   ============================================= */
+.membership-hero {
+  padding: 100px 40px 80px;
+  text-align: center;
+  background: var(--ms-bg);
+}
+
+.membership-hero__inner {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.membership-hero__title {
+  font-family: var(--ms-serif);
+  font-size: 3.2rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin: 0 0 24px;
+  color: var(--ms-fg);
+}
+
+.membership-hero__desc {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--ms-fg-sub);
+  margin: 0 0 40px;
+  font-weight: 300;
+}
+
+.membership-hero__cta {
+  display: inline-block;
+  padding: 14px 40px;
+  border: 1px solid var(--ms-fg);
+  background: transparent;
+  color: var(--ms-fg);
+  font-size: 0.85rem;
+  font-family: var(--ms-sans);
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.membership-hero__cta:hover {
+  background: var(--ms-fg);
+  color: var(--ms-bg);
+}
+
+/* =============================================
+   PLAN COMPARISON SECTION
+   ============================================= */
+.membership-plans {
+  padding: 60px 40px 80px;
+  background: var(--ms-bg);
+}
+
+.membership-plans__inner {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.membership-plans__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* Plan Card */
+.plan-card {
+  border: 1px solid var(--ms-border);
+  border-radius: 12px;
+  padding: 40px 30px 36px;
+  text-align: center;
+  background: var(--ms-bg);
+  transition: box-shadow 0.3s ease;
+}
+
+.plan-card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+}
+
+.plan-card--recommended {
+  border-color: var(--ms-accent);
+  box-shadow: 0 4px 24px rgba(232, 116, 42, 0.08);
+}
+
+.plan-card--recommended:hover {
+  box-shadow: 0 8px 32px rgba(232, 116, 42, 0.14);
+}
+
+.plan-card__name {
+  font-family: var(--ms-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 28px;
+  padding: 12px 24px;
+  border: 1px solid var(--ms-border);
+  border-radius: 30px;
+  display: inline-block;
+  letter-spacing: 0.02em;
+}
+
+.plan-card--recommended .plan-card__name {
+  background: var(--ms-accent);
+  color: #fff;
+  border-color: var(--ms-accent);
+}
+
+.plan-card__features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  text-align: left;
+}
+
+.plan-card__feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 6px 0;
+  font-size: 0.85rem;
+  color: var(--ms-fg-sub);
+  line-height: 1.5;
+}
+
+.plan-card__feature svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Period Toggle */
+.plan-card__toggle {
+  display: inline-flex;
+  border: 1px solid var(--ms-border);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.plan-card__toggle-btn {
+  padding: 8px 20px;
+  border: none;
+  background: var(--ms-bg);
+  font-size: 0.8rem;
+  font-family: var(--ms-sans);
+  cursor: pointer;
+  color: var(--ms-fg-sub);
+  transition: all 0.2s ease;
+}
+
+.plan-card__toggle-btn--active {
+  background: var(--ms-fg);
+  color: var(--ms-bg);
+}
+
+/* Pricing */
+.plan-card__pricing {
+  margin-bottom: 4px;
+}
+
+.plan-card__price {
+  font-family: var(--ms-serif);
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--ms-fg);
+}
+
+.plan-card__period {
+  font-size: 0.85rem;
+  color: var(--ms-fg-muted);
+  margin-left: 4px;
+}
+
+.plan-card__original {
+  font-size: 0.8rem;
+  color: var(--ms-fg-muted);
+  margin: 4px 0 24px;
+}
+
+/* CTA Button */
+.plan-card__cta {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  border: 1px solid var(--ms-fg);
+  background: transparent;
+  color: var(--ms-fg);
+  font-size: 0.88rem;
+  font-family: var(--ms-sans);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.04em;
+}
+
+.plan-card__cta:hover {
+  background: var(--ms-fg);
+  color: var(--ms-bg);
+}
+
+.plan-card__cta--primary {
+  background: var(--ms-accent);
+  border-color: var(--ms-accent);
+  color: #fff;
+}
+
+.plan-card__cta--primary:hover {
+  background: var(--ms-accent-hover);
+  border-color: var(--ms-accent-hover);
+}
+
+/* =============================================
+   BENEFITS SECTION
+   ============================================= */
+.membership-benefits {
+  padding: 80px 40px 100px;
+  background: var(--ms-bg);
+}
+
+.membership-benefits__inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.membership-benefits__header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.membership-benefits__divider {
+  width: 60px;
+  height: 1px;
+  background: var(--ms-border);
+  margin: 0 auto 40px;
+}
+
+.membership-benefits__title {
+  font-family: var(--ms-serif);
+  font-size: 2.4rem;
+  font-weight: 400;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+
+.membership-benefits__subtitle {
+  font-size: 0.95rem;
+  color: var(--ms-fg-sub);
+  font-weight: 300;
+}
+
+/* Benefit Items — Zigzag Layout */
+.membership-benefits__list {
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.benefit-item--reverse {
+  flex-direction: row-reverse;
+}
+
+.benefit-item__illustration {
+  flex: 0 0 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.benefit-item__illustration-placeholder {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: var(--ms-bg-soft);
+  border: 1px solid var(--ms-border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.benefit-item__illustration-number {
+  font-family: var(--ms-serif);
+  font-size: 4rem;
+  color: var(--ms-border);
+  font-weight: 300;
+}
+
+.benefit-item__content {
+  flex: 1;
+}
+
+.benefit-item__number {
+  display: block;
+  font-family: var(--ms-serif);
+  font-size: 1rem;
+  color: var(--ms-fg-muted);
+  margin-bottom: 8px;
+}
+
+.benefit-item__title {
+  font-family: var(--ms-sans);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 14px;
+  line-height: 1.5;
+}
+
+.benefit-item__desc {
+  font-size: 0.9rem;
+  color: var(--ms-fg-sub);
+  line-height: 1.8;
+  margin: 0 0 16px;
+  font-weight: 300;
+}
+
+.benefit-item__link {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--ms-fg);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.2s ease;
+}
+
+.benefit-item__link:hover {
+  color: var(--ms-accent);
+}
+
+/* =============================================
+   MAGAZINE SECTION
+   ============================================= */
+.membership-magazine {
+  padding: 80px 40px 120px;
+  background: var(--ms-bg-soft);
+}
+
+.membership-magazine__inner {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.membership-magazine__header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.membership-magazine__divider {
+  width: 60px;
+  height: 1px;
+  background: var(--ms-border);
+  margin: 0 auto 40px;
+}
+
+.membership-magazine__title {
+  font-family: var(--ms-serif);
+  font-size: 2.4rem;
+  font-weight: 400;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+
+.membership-magazine__subtitle {
+  font-size: 0.95rem;
+  color: var(--ms-fg-sub);
+  font-weight: 300;
+}
+
+/* Tag Filter */
+.tag-filter {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.tag-filter__btn {
+  padding: 8px 22px;
+  border: 1px solid var(--ms-border);
+  border-radius: 30px;
+  background: var(--ms-bg);
+  color: var(--ms-fg-sub);
+  font-size: 0.82rem;
+  font-family: var(--ms-sans);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  letter-spacing: 0.02em;
+}
+
+.tag-filter__btn:hover {
+  border-color: var(--ms-fg);
+  color: var(--ms-fg);
+}
+
+.tag-filter__btn--active {
+  background: var(--ms-fg);
+  color: var(--ms-bg);
+  border-color: var(--ms-fg);
+}
+
+/* Magazine Grid */
+.magazine-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* Magazine Card */
+.magazine-card {
+  background: var(--ms-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid var(--ms-border-light);
+  transition: box-shadow 0.3s ease;
+}
+
+.magazine-card:hover {
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+}
+
+.magazine-card__image-wrapper {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.magazine-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.magazine-card:hover .magazine-card__image {
+  transform: scale(1.05);
+}
+
+.magazine-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.magazine-card:hover .magazine-card__overlay {
+  opacity: 1;
+}
+
+.magazine-card__read-more {
+  color: #fff;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  border: 1px solid rgba(255,255,255,0.6);
+  padding: 10px 24px;
+}
+
+.magazine-card__body {
+  padding: 22px 20px 24px;
+}
+
+.magazine-card__tags {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.magazine-card__tag {
+  font-size: 0.7rem;
+  color: var(--ms-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+.magazine-card__title {
+  font-family: var(--ms-sans);
+  font-size: 1.02rem;
+  font-weight: 600;
+  margin: 0 0 10px;
+  line-height: 1.5;
+  color: var(--ms-fg);
+}
+
+.magazine-card__excerpt {
+  font-size: 0.82rem;
+  color: var(--ms-fg-sub);
+  line-height: 1.65;
+  margin: 0 0 14px;
+  font-weight: 300;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.magazine-card__meta {
+  font-size: 0.75rem;
+  color: var(--ms-fg-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.magazine-card__dot {
+  color: var(--ms-border);
+}
+
+/* =============================================
+   ARTICLE DETAIL
+   ============================================= */
+.article-detail {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px 0 80px;
+}
+
+.article-detail__back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.88rem;
+  color: var(--ms-fg-sub);
+  font-family: var(--ms-sans);
+  padding: 12px 0;
+  margin-bottom: 24px;
+  transition: color 0.2s ease;
+}
+
+.article-detail__back:hover {
+  color: var(--ms-fg);
+}
+
+.article-detail__hero {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.article-detail__cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.article-detail__header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.article-detail__tags {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.article-detail__tag {
+  font-size: 0.72rem;
+  color: var(--ms-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+.article-detail__title {
+  font-family: var(--ms-serif);
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 0 0 12px;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+}
+
+.article-detail__subtitle {
+  font-size: 1rem;
+  color: var(--ms-fg-sub);
+  font-weight: 300;
+  margin: 0 0 20px;
+}
+
+.article-detail__meta {
+  font-size: 0.8rem;
+  color: var(--ms-fg-muted);
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.article-detail__dot {
+  color: var(--ms-border);
+}
+
+.article-detail__divider {
+  width: 40px;
+  height: 1px;
+  background: var(--ms-border);
+  margin: 32px auto;
+}
+
+/* Article Content Typography */
+.article-detail__content {
+  font-size: 0.95rem;
+  line-height: 1.95;
+  color: var(--ms-fg);
+  font-weight: 300;
+}
+
+.article-detail__content h2 {
+  font-family: var(--ms-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 48px 0 20px;
+  letter-spacing: -0.02em;
+}
+
+.article-detail__content h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 36px 0 14px;
+}
+
+.article-detail__content p {
+  margin: 0 0 20px;
+}
+
+.article-detail__content blockquote {
+  margin: 32px 0;
+  padding: 24px 28px;
+  border-left: 3px solid var(--ms-accent);
+  background: var(--ms-bg-soft);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ms-fg-sub);
+  line-height: 1.8;
+}
+
+.article-detail__content ol,
+.article-detail__content ul {
+  padding-left: 24px;
+  margin: 16px 0;
+}
+
+.article-detail__content li {
+  margin-bottom: 10px;
+}
+
+.article-detail__content strong {
+  font-weight: 600;
+  color: var(--ms-fg);
+}
+
+.article-detail__content em {
+  color: var(--ms-fg-sub);
+}
+
+/* Article Footer */
+.article-detail__footer {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.article-detail__footer-text {
+  font-size: 0.88rem;
+  color: var(--ms-fg-muted);
+  margin-bottom: 20px;
+}
+
+.article-detail__join-cta {
+  display: inline-block;
+  padding: 14px 36px;
+  background: var(--ms-accent);
+  color: #fff;
+  border: none;
+  font-size: 0.88rem;
+  font-family: var(--ms-sans);
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: background 0.3s ease;
+}
+
+.article-detail__join-cta:hover {
+  background: var(--ms-accent-hover);
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 900px) {
+  .membership-plans__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .magazine-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .benefit-item {
+    gap: 36px;
+  }
+
+  .benefit-item__illustration {
+    flex: 0 0 200px;
+  }
+
+  .benefit-item__illustration-placeholder {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 680px) {
+  .membership-hero {
+    padding: 70px 24px 50px;
+  }
+
+  .membership-hero__title {
+    font-size: 2.4rem;
+  }
+
+  .membership-hero__desc br {
+    display: none;
+  }
+
+  .membership-plans {
+    padding: 40px 20px 60px;
+  }
+
+  .membership-plans__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .membership-benefits {
+    padding: 60px 24px 80px;
+  }
+
+  .benefit-item,
+  .benefit-item--reverse {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .benefit-item__illustration {
+    flex: 0 0 auto;
+  }
+
+  .benefit-item__illustration-placeholder {
+    width: 150px;
+    height: 150px;
+  }
+
+  .membership-magazine {
+    padding: 60px 20px 80px;
+  }
+
+  .magazine-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .membership-benefits__title,
+  .membership-magazine__title {
+    font-size: 1.8rem;
+  }
+
+  .article-detail__title {
+    font-size: 1.6rem;
+  }
+
+  .tag-filter {
+    gap: 8px;
+  }
+
+  .tag-filter__btn {
+    padding: 7px 16px;
+    font-size: 0.78rem;
+  }
+}
