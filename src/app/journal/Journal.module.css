@@ -1,0 +1,42 @@
+.main {
+  padding-top: 100px; /* Space for the sticky header */
+  min-height: 100vh;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.title {
+  font-family: 'Cardo', serif;
+  font-size: 4rem;
+  margin-bottom: 24px;
+  letter-spacing: -0.04em;
+}
+
+.subtitle {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 1.1rem;
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 100px;
+}
+
+.placeholder {
+  border: 1px solid var(--border);
+  padding: 100px;
+  text-align: center;
+  font-family: 'Pretendard', sans-serif;
+  color: var(--muted);
+  line-height: 1.9;
+}

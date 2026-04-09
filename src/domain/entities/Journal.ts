@@ -17,5 +17,4 @@ export interface Journal {
 export interface JournalDetail extends Journal {
   content: string;
   author: string;
-  relatedArticleIds: string[];
 }

@@ -1,7 +1,9 @@
-"use client";
+import JournalClient from './JournalClient';
 
-import JournalPage from "@/presentation/pages/journal";
-
-export default function Page() {
-  return <JournalPage />;
+export default function JournalPage() {
+  return (
+    <main style={{ paddingTop: '100px' }}>
+      <JournalClient />
+    </main>
+  );
 }

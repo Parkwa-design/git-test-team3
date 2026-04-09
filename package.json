@@ -1,6 +1,5 @@
 {
-  "name": "git-test-achim",
-  "version": "0.1.0",
+  "name": "achim-integrated",
   "private": true,
   "scripts": {
     "dev": "next dev",
