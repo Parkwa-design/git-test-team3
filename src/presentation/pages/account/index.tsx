@@ -1,264 +1,364 @@
-import React from 'react';
-import Link from 'next/link';
+"use client";
 
-// -------------------------------------------------------------
-// Component: Sidebar Navigation
-// -------------------------------------------------------------
-const SidebarNav = () => {
-  const navItems = [
-    { name: 'My Profile', active: true },
-    { name: 'Dashboard', active: false },
-    { name: 'Subscription', active: false },
-    { name: 'Order History', active: false },
-    { name: 'Settings', active: false },
-  ];
+import React, { useState } from 'react';
+import { accountMockData } from '@/infrastructure/mocks/accountMock';
+import styles from './account.module.css';
 
-  return (
-    <nav className="flex flex-col space-y-6 pt-4">
-      {navItems.map((item, idx) => (
-        <Link
-          key={idx}
-          href="#"
-          className={`text-sm uppercase tracking-widest ${
-            item.active ? 'font-bold text-textMain' : 'text-gray-400 hover:text-textMain'
-          } transition-colors`}
-        >
-          {item.name}
-        </Link>
-      ))}
-    </nav>
-  );
-};
+type MenuKey =
+  | 'orders'
+  | 'wishlist'
+  | 'subscription'
+  | 'coupon'
+  | 'points'
+  | 'restock'
+  | 'inquiry'
+  | 'edit'
+  | 'withdraw';
 
-// -------------------------------------------------------------
-// Component: Section 1 - Profile & Membership Header
-// -------------------------------------------------------------
-const ProfileHeader = () => {
-  return (
-    <section className="border-b border-borderLight pb-16 mb-16">
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-        <div>
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-xs tracking-widest uppercase border border-textMain px-2 py-1">
-              Morning Owner ✦
-            </span>
-          </div>
-          <h1 className="text-4xl md:text-5xl font-serif text-textMain mb-4">
-            Good morning, 지민님.
-          </h1>
-          <p className="text-gray-500 font-sans font-light text-lg">
-            오늘도 고요하고 아름다운 아침을 맞이하셨나요?
-          </p>
-        </div>
-        
-        <div className="text-left md:text-right">
-          <p className="text-sm text-gray-500 uppercase tracking-widest mb-2">Next Renewal</p>
-          <p className="font-serif text-4xl">D-14</p>
-          <p className="text-xs text-gray-400 mt-2">2026. 04. 22 갱신 예정</p>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// -------------------------------------------------------------
-// Component: Section 2 - Morning Owner Dashboard
-// -------------------------------------------------------------
-const Dashboard = () => {
-  return (
-    <section className="mb-24">
-      <h2 className="text-2xl font-serif mb-8 border-b border-borderLight pb-4">Membership Dashboard</h2>
-      
-      {/* Grid Layout using thin lines */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-borderLight">
-        
-        {/* Cell 1: Benefits */}
-        <div className="p-8 lg:p-12 border-b border-r border-borderLight flex flex-col justify-between h-full">
-          <div>
-            <h3 className="text-xs uppercase tracking-widest text-gray-400 mb-6">This Month's Benefits</h3>
-            <ul className="space-y-4 text-sm font-light">
-              <li className="flex items-start">
-                <span className="mr-3 text-gray-300">—</span>
-                스페셜 에디션 원두 10% 프리오더 (4.15 오픈)
-              </li>
-              <li className="flex items-start">
-                <span className="mr-3 text-gray-300">—</span>
-                시크릿 샵 '오포잇(Opoet)' 무료 배송 쿠폰 2매
-              </li>
-              <li className="flex items-start">
-                <span className="mr-3 text-gray-300">—</span>
-                프라이빗 온라인 북토크 우선 예약권
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Cell 2: Unread Notifications */}
-        <div className="p-8 lg:p-12 border-b border-r border-borderLight flex flex-col justify-between h-full">
-          <div>
-            <h3 className="text-xs uppercase tracking-widest text-gray-400 mb-6">Unread Magazines</h3>
-            <div className="space-y-6">
-              <div className="group cursor-pointer">
-                <p className="text-xs text-gray-400 mb-1">Vol 42. 봄의 침묵</p>
-                <p className="font-serif text-lg group-hover:underline underline-offset-4 decoration-1">
-                  아침을 여는 소리에 관하여
-                </p>
-              </div>
-              <div className="group cursor-pointer">
-                <p className="text-xs text-gray-400 mb-1">Weekly Letter</p>
-                <p className="font-serif text-lg group-hover:underline underline-offset-4 decoration-1">
-                  당신의 세 번째 봄을 맞이하며
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Cell 3: Secret Shop Access */}
-        <div className="p-8 lg:p-12 border-b border-r border-borderLight flex flex-col justify-between bg-gray-50 h-full md:col-span-2 lg:col-span-1">
-          <div>
-            <h3 className="text-xs uppercase tracking-widest text-gray-400 mb-6">Secret Shop</h3>
-            <p className="font-serif text-2xl mb-4 leading-tight">
-              회원 전용<br/>시크릿 샵 입장
-            </p>
-            <p className="text-sm font-light text-gray-500 mb-12">
-              정기구독 멤버십들만 접근 가능한 한정 굿즈와 도서를 만나보세요.
-            </p>
-          </div>
-          <button className="w-full uppercase tracking-widest text-xs border border-textMain py-4 hover:bg-textMain hover:text-white transition-colors duration-300">
-            Enter Shop
-          </button>
-        </div>
-
-      </div>
-    </section>
-  );
-};
-
-// -------------------------------------------------------------
-// Component: Section 3 - Order & Subscription
-// -------------------------------------------------------------
-const OrderSubscription = () => {
-  return (
-    <section className="mb-24">
-      <h2 className="text-2xl font-serif mb-12 border-b border-borderLight pb-4">Subscription & Orders</h2>
-
-      <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
-        
-        {/* Subscription Info */}
-        <div className="flex-1">
-          <h3 className="text-sm tracking-widest uppercase text-gray-400 mb-8">Current Subscription</h3>
-          
-          <div className="bg-textMain text-white p-10 lg:p-14">
-            <h4 className="font-serif text-2xl mb-8">스탠다드 매거진 & 커피 플랜</h4>
-            
-            <div className="grid grid-cols-2 gap-8 mb-12 font-light text-sm">
-              <div>
-                <p className="text-gray-400 mb-2">다음 결제일</p>
-                <p>2026. 04. 22</p>
-              </div>
-              <div>
-                <p className="text-gray-400 mb-2">배송 예정일</p>
-                <p>2026. 04. 25</p>
-              </div>
-              <div>
-                <p className="text-gray-400 mb-2">결제 수단</p>
-                <p>현대카드 (끝자리 1234)</p>
-              </div>
-              <div>
-                <p className="text-gray-400 mb-2">배송지</p>
-                <p>서울시 강남구 테헤란로</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-6 text-sm">
-              <button className="underline underline-offset-4 decoration-1 hover:text-gray-300 transition-colors">
-                구독 변경
-              </button>
-              <button className="underline underline-offset-4 decoration-1 hover:text-gray-300 transition-colors">
-                쉬어가기
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Order History */}
-        <div className="flex-1">
-          <div className="flex items-center justify-between mb-8">
-            <h3 className="text-sm tracking-widest uppercase text-gray-400">Order History</h3>
-            <button className="text-xs uppercase tracking-widest hover:underline underline-offset-4">View All</button>
-          </div>
-          
-          <div className="space-y-0 border-t border-borderLight">
-            {/* Order Item 1 */}
-            <div className="py-8 flex gap-6 border-b border-borderLight">
-              <div className="w-24 h-32 bg-gray-200 grayscale opacity-80 overflow-hidden relative">
-                {/* Placeholder Image using CSS gradient fallback */}
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-300 to-gray-400"></div>
-              </div>
-              <div className="flex flex-col justify-center flex-1">
-                <span className="text-xs text-gray-400 mb-2">2026. 03. 15</span>
-                <p className="font-serif text-lg mb-4">리넨 패브릭 포스터 - 새벽의 안개</p>
-                <p className="text-sm text-textMain tracking-widest uppercase">배송 완료</p>
-              </div>
-            </div>
-
-            {/* Order Item 2 */}
-            <div className="py-8 flex gap-6 border-b border-borderLight">
-              <div className="w-24 h-32 bg-gray-200 grayscale opacity-80 overflow-hidden relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300"></div>
-              </div>
-              <div className="flex flex-col justify-center flex-1">
-                <span className="text-xs text-gray-400 mb-2">2026. 02. 28</span>
-                <p className="font-serif text-lg mb-4">콜드브루 디카페인 (500ml)</p>
-                <p className="text-sm text-textMain tracking-widest uppercase">배송 완료</p>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-
-      </div>
-    </section>
-  );
-};
+const navItems: { name: string; key: MenuKey }[] = [
+  { name: '주문/예약 조회', key: 'orders' },
+  { name: '위시리스트', key: 'wishlist' },
+  { name: '정기구독관리', key: 'subscription' },
+  { name: '쿠폰', key: 'coupon' },
+  { name: '포인트', key: 'points' },
+  { name: '재입고 알림', key: 'restock' },
+  { name: '1:1 문의', key: 'inquiry' },
+  { name: '정보 수정', key: 'edit' },
+  { name: '회원탈퇴', key: 'withdraw' },
+];
 
 const AccountPage: React.FC = () => {
-  return (
-    <div className="min-h-screen bg-background font-sans text-textMain selection:bg-black selection:text-white pb-32">
-      {/* Top Header Placeholder (Logo, etc) */}
-      <header className="border-b border-borderLight px-6 lg:px-16 py-8 flex justify-between items-center bg-white sticky top-0 z-10">
-        <div className="font-serif text-2xl font-bold tracking-tighter">OPOET.</div>
-        <div className="text-xs tracking-widest uppercase space-x-8 hidden md:block">
-          <Link href="/journal" className="hover:text-gray-500">Magazine</Link>
-          <Link href="/mart" className="hover:text-gray-500">Shop</Link>
-          <Link href="/about" className="hover:text-gray-500">About</Link>
-        </div>
-      </header>
+  const data = accountMockData;
+  const user = data.user;
+  const [activeMenu, setActiveMenu] = useState<MenuKey>('orders');
 
-      {/* Main Grid Layout */}
-      <main className="max-w-screen-2xl mx-auto px-6 lg:px-16 mt-16 md:mt-24">
-        <div className="flex flex-col md:flex-row gap-16 lg:gap-32">
-          
-          {/* Left Column: Navigation */}
-          <aside className="w-full md:w-48 lg:w-64 flex-shrink-0">
-            <div className="sticky top-40">
-              <h2 className="text-xl font-serif mb-8 border-b border-borderLight pb-4">My Account</h2>
-              <SidebarNav />
-            </div>
+  return (
+    <div className={styles.accountWrapper}>
+      <main className={styles.accountMain}>
+        <div className={styles.accountLayout}>
+
+          {/* Left: Sidebar Navigation */}
+          <aside className={styles.sidebar}>
+            <nav className={styles.sidebarNav}>
+              {navItems.map((item) => (
+                <button
+                  key={item.key}
+                  onClick={() => setActiveMenu(item.key)}
+                  className={activeMenu === item.key ? styles.sidebarLinkActive : styles.sidebarLink}
+                >
+                  {item.name}
+                </button>
+              ))}
+            </nav>
           </aside>
 
-          {/* Right Column: Content */}
-          <div className="flex-1 w-full max-w-4xl">
-            <ProfileHeader />
-            <Dashboard />
-            <OrderSubscription />
-          </div>
+          {/* Right: Main Content Area */}
+          <div className={styles.content}>
 
+            {/* Profile Card (항상 표시) */}
+            <div className={styles.profileCard}>
+              <div className={styles.profileInfo}>
+                <div className={styles.profileAvatar} />
+                <div className={styles.profileText}>
+                  <h1><strong>{user.name}</strong> 님 안녕하세요.</h1>
+                  <p>누적 구매금액: ₩{user.accumulatedAmount.toLocaleString()}</p>
+                </div>
+              </div>
+              <div className={styles.profileStats}>
+                <div className={styles.statItem}>
+                  <span className={styles.statLabel}>포인트</span>
+                  <span className={styles.statValue}>{user.points.toLocaleString()}</span>
+                </div>
+                <div className={styles.statItem}>
+                  <span className={styles.statLabel}>쿠폰</span>
+                  <span className={styles.statValue}>{user.coupons}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* 메뉴별 콘텐츠 */}
+            {activeMenu === 'orders' && <OrdersContent />}
+            {activeMenu === 'wishlist' && <WishlistContent />}
+            {activeMenu === 'subscription' && <SubscriptionContent />}
+            {activeMenu === 'coupon' && <CouponContent />}
+            {activeMenu === 'points' && <PointsContent />}
+            {activeMenu === 'restock' && <RestockContent />}
+            {activeMenu === 'inquiry' && <InquiryContent />}
+            {activeMenu === 'edit' && <EditContent />}
+            {activeMenu === 'withdraw' && <WithdrawContent />}
+
+          </div>
         </div>
       </main>
     </div>
   );
 };
+
+/* ===================== 각 메뉴별 콘텐츠 컴포넌트 ===================== */
+
+/** 주문/예약 조회 */
+function OrdersContent() {
+  const orders = accountMockData.orders;
+  return (
+    <section className={styles.orderSection}>
+      <h2 className={styles.sectionTitle}>주문 조회</h2>
+      {orders.length === 0 ? (
+        <div className={styles.emptyState}>
+          <p>주문 내역이 없습니다.</p>
+        </div>
+      ) : (
+        <div>{/* order items */}</div>
+      )}
+    </section>
+  );
+}
+
+/** 위시리스트 */
+function WishlistContent() {
+  return (
+    <section className={styles.wishlistSection}>
+      <h2 className={styles.sectionTitle}>위시리스트</h2>
+      <div className={styles.emptyState}>
+        <p>위시리스트에 담긴 상품이 없습니다.</p>
+      </div>
+    </section>
+  );
+}
+
+/** 정기구독 관리 */
+function SubscriptionContent() {
+  const membership = accountMockData.membership;
+  return (
+    <section className={styles.subscriptionSection}>
+      <h2 className={styles.sectionTitle}>정기구독 관리</h2>
+
+      <div className={styles.subCard}>
+        <div className={styles.subCardHeader}>
+          <span className={styles.subPlanName}>{membership.planName}</span>
+          <span className={styles.subStatus}>구독 중</span>
+        </div>
+
+        <div className={styles.subDetailRow}>
+          <span className={styles.subDetailLabel}>다음 결제일</span>
+          <span className={styles.subDetailValue}>{membership.nextRenewalDate} (D-{membership.dDay})</span>
+        </div>
+        <div className={styles.subDetailRow}>
+          <span className={styles.subDetailLabel}>구독 시작일</span>
+          <span className={styles.subDetailValue}>2024. 03. 15</span>
+        </div>
+        <div className={styles.subDetailRow}>
+          <span className={styles.subDetailLabel}>결제 금액</span>
+          <span className={styles.subDetailValue}>월 29,900원</span>
+        </div>
+        <div className={styles.subDetailRow}>
+          <span className={styles.subDetailLabel}>배송 주기</span>
+          <span className={styles.subDetailValue}>매월 1회</span>
+        </div>
+
+        <div className={styles.subBenefits}>
+          <p className={styles.subBenefitsTitle}>이번 달 구독 혜택</p>
+          {membership.benefits.map((b, i) => (
+            <div key={i} className={styles.subBenefitItem}>{b}</div>
+          ))}
+        </div>
+
+        <div className={styles.subActionRow}>
+          <button className={styles.subBtn}>배송지 변경</button>
+          <button className={styles.subBtn}>결제 수단 변경</button>
+          <button className={styles.subBtn}>구독 일시정지</button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/** 쿠폰 */
+function CouponContent() {
+  const coupons = [
+    { name: '신규 가입 축하 쿠폰', discount: '10%', expiry: '2026. 06. 30' },
+    { name: '봄맞이 시즌 쿠폰', discount: '5,000원', expiry: '2026. 04. 30' },
+  ];
+  return (
+    <section className={styles.couponSection}>
+      <h2 className={styles.sectionTitle}>쿠폰 ({coupons.length})</h2>
+      {coupons.length === 0 ? (
+        <div className={styles.emptyState}>
+          <p>사용 가능한 쿠폰이 없습니다.</p>
+        </div>
+      ) : (
+        coupons.map((c, i) => (
+          <div key={i} className={styles.couponCard}>
+            <div className={styles.couponInfo}>
+              <h3>{c.name}</h3>
+              <p>유효기간: {c.expiry}까지</p>
+            </div>
+            <span className={styles.couponDiscount}>{c.discount}</span>
+          </div>
+        ))
+      )}
+    </section>
+  );
+}
+
+/** 포인트 */
+function PointsContent() {
+  const user = accountMockData.user;
+  const pointHistory = [
+    { date: '2026. 04. 01', desc: '회원가입 축하 적립', change: '+1,000', balance: '1,000', type: 'plus' },
+    { date: '2026. 03. 28', desc: '상품 구매 적립 (콜드브루 디카페인)', change: '+500', balance: '500', type: 'plus' },
+    { date: '2026. 03. 15', desc: '상품 구매 사용', change: '-200', balance: '0', type: 'minus' },
+  ];
+
+  return (
+    <section className={styles.pointsSection}>
+      <h2 className={styles.sectionTitle}>포인트</h2>
+
+      <div className={styles.pointsSummary}>
+        <div className={styles.pointsTotal}>
+          <span className={styles.pointsTotalLabel}>사용 가능 포인트</span>
+          <span className={styles.pointsTotalValue}>
+            {user.points.toLocaleString()}<span className={styles.pointsTotalUnit}>P</span>
+          </span>
+        </div>
+        <div className={styles.pointsBreakdown}>
+          <div className={styles.pointsBreakdownItem}>
+            <span className={styles.pointsBreakdownLabel}>적립 예정</span>
+            <span className={styles.pointsBreakdownValue}>0 P</span>
+          </div>
+          <div className={styles.pointsBreakdownItem}>
+            <span className={styles.pointsBreakdownLabel}>소멸 예정 (30일 내)</span>
+            <span className={styles.pointsBreakdownValue}>0 P</span>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.pointsTable}>
+        <div className={styles.pointsTableHeader}>
+          <span className={styles.pointsCol1}>날짜</span>
+          <span className={styles.pointsCol2}>내용</span>
+          <span className={styles.pointsCol3}>변동</span>
+          <span className={styles.pointsCol4}>잔액</span>
+        </div>
+        {pointHistory.map((item, i) => (
+          <div key={i} className={styles.pointsTableRow}>
+            <span className={styles.pointsCol1}>{item.date}</span>
+            <span className={styles.pointsCol2}>{item.desc}</span>
+            <span className={`${styles.pointsCol3} ${item.type === 'plus' ? styles.pointsPlus : styles.pointsMinus}`}>
+              {item.change}
+            </span>
+            <span className={styles.pointsCol4}>{item.balance}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/** 재입고 알림 */
+function RestockContent() {
+  return (
+    <section className={styles.restockSection}>
+      <h2 className={styles.sectionTitle}>재입고 알림</h2>
+      <div className={styles.emptyState}>
+        <p>재입고 알림 신청 내역이 없습니다.</p>
+      </div>
+    </section>
+  );
+}
+
+/** 1:1 문의 */
+function InquiryContent() {
+  const inquiries = [
+    { title: '배송 지연 관련 문의', date: '2026. 03. 20', status: 'done' },
+    { title: '상품 교환 요청', date: '2026. 04. 05', status: 'pending' },
+  ];
+
+  return (
+    <section className={styles.inquirySection}>
+      <h2 className={styles.sectionTitle}>1:1 문의</h2>
+      <button className={styles.inquiryBtn}>문의 작성하기</button>
+      {inquiries.length === 0 ? (
+        <div className={styles.emptyState}>
+          <p>문의 내역이 없습니다.</p>
+        </div>
+      ) : (
+        inquiries.map((item, i) => (
+          <div key={i} className={styles.inquiryCard}>
+            <div className={styles.inquiryCardLeft}>
+              <h3>{item.title}</h3>
+              <p>{item.date}</p>
+            </div>
+            <span className={item.status === 'done' ? styles.inquiryStatusDone : styles.inquiryStatusPending}>
+              {item.status === 'done' ? '답변 완료' : '답변 대기'}
+            </span>
+          </div>
+        ))
+      )}
+    </section>
+  );
+}
+
+/** 정보 수정 */
+function EditContent() {
+  const user = accountMockData.user;
+  return (
+    <section className={styles.editSection}>
+      <h2 className={styles.sectionTitle}>정보 수정</h2>
+      <div className={styles.editCard}>
+        <div className={styles.editRow}>
+          <span className={styles.editLabel}>이름</span>
+          <span className={styles.editValue}>{user.name}</span>
+          <button className={styles.editBtn}>변경</button>
+        </div>
+        <div className={styles.editRow}>
+          <span className={styles.editLabel}>이메일</span>
+          <span className={styles.editValue}>{user.email}</span>
+          <button className={styles.editBtn}>변경</button>
+        </div>
+        <div className={styles.editRow}>
+          <span className={styles.editLabel}>비밀번호</span>
+          <span className={styles.editValue}>••••••••</span>
+          <button className={styles.editBtn}>변경</button>
+        </div>
+        <div className={styles.editRow}>
+          <span className={styles.editLabel}>연락처</span>
+          <span className={styles.editValue}>010-****-1234</span>
+          <button className={styles.editBtn}>변경</button>
+        </div>
+        <div className={styles.editRow}>
+          <span className={styles.editLabel}>배송지</span>
+          <span className={styles.editValue}>서울특별시 송파구 위례성대로 2길 8</span>
+          <button className={styles.editBtn}>변경</button>
+        </div>
+        <div className={styles.editRow}>
+          <span className={styles.editLabel}>회원등급</span>
+          <span className={styles.editValue}>{user.membershipLevel}</span>
+        </div>
+        <div className={styles.editRow}>
+          <span className={styles.editLabel}>가입일</span>
+          <span className={styles.editValue}>{user.joinedAt}</span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/** 회원탈퇴 */
+function WithdrawContent() {
+  return (
+    <section className={styles.withdrawSection}>
+      <h2 className={styles.sectionTitle}>회원탈퇴</h2>
+      <div className={styles.withdrawCard}>
+        <p>
+          회원 탈퇴 시 모든 개인 정보와 서비스 이용 기록이 삭제됩니다.<br />
+          보유 중인 포인트 및 쿠폰은 모두 소멸되며, 복구할 수 없습니다.<br />
+          정기구독 중인 상품이 있을 경우, 탈퇴 전 구독 해지를 먼저 진행해 주세요.<br />
+          탈퇴 후 동일 이메일로 재가입은 30일 이후 가능합니다.
+        </p>
+        <button className={styles.withdrawBtn}>회원 탈퇴 신청</button>
+      </div>
+    </section>
+  );
+}
 
 export default AccountPage;

@@ -1,0 +1,595 @@
+/* Account Page Layout */
+.accountWrapper {
+  min-height: 100vh;
+  background-color: #f9f9f9;
+  font-family: var(--font-sans);
+  color: var(--foreground);
+  padding-bottom: 160px;
+}
+
+.accountMain {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 100px 40px 0;
+}
+
+.accountLayout {
+  display: flex;
+  gap: 60px;
+}
+
+/* === Sidebar === */
+.sidebar {
+  width: 160px;
+  flex-shrink: 0;
+  padding-top: 8px;
+}
+
+.sidebarNav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebarLink {
+  font-size: 14px;
+  color: #888;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  transition: color 0.2s;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  font-family: inherit;
+}
+
+.sidebarLink:hover {
+  color: var(--foreground);
+}
+
+.sidebarLinkActive {
+  font-size: 14px;
+  color: var(--foreground);
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  font-family: inherit;
+}
+
+/* === Main Content === */
+.content {
+  flex: 1;
+  max-width: 900px;
+}
+
+/* === Profile Card === */
+.profileCard {
+  display: flex;
+  align-items: stretch;
+  background: #fff;
+  margin-bottom: 48px;
+}
+
+.profileInfo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 32px 40px;
+}
+
+.profileAvatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #a4cada;
+  flex-shrink: 0;
+}
+
+.profileText h1 {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--foreground);
+  margin-bottom: 4px;
+}
+
+.profileText h1 strong {
+  font-weight: 600;
+}
+
+.profileText p {
+  font-size: 13px;
+  color: #888;
+}
+
+.profileStats {
+  display: flex;
+}
+
+.statItem {
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 0;
+  border-left: 1px solid #eee;
+}
+
+.statLabel {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.statValue {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+/* === Section Common === */
+.sectionTitle {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 32px;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 80px 0;
+}
+
+.emptyState p {
+  font-size: 13px;
+  color: #a0a0a0;
+}
+
+/* === Order Section === */
+.orderSection {
+  margin-top: 8px;
+}
+
+/* === Subscription Section === */
+.subscriptionSection {
+  margin-top: 8px;
+}
+
+.subCard {
+  background: #fff;
+  padding: 32px 40px;
+  margin-bottom: 24px;
+}
+
+.subCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.subPlanName {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.subStatus {
+  font-size: 12px;
+  color: #fff;
+  background: #2d8f2d;
+  padding: 4px 12px;
+  border-radius: 50px;
+}
+
+.subDetailRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-top: 1px solid #f0f0f0;
+  font-size: 14px;
+}
+
+.subDetailLabel {
+  color: #888;
+}
+
+.subDetailValue {
+  color: var(--foreground);
+  font-weight: 500;
+}
+
+.subBenefits {
+  margin-top: 24px;
+}
+
+.subBenefitsTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 12px;
+}
+
+.subBenefitItem {
+  font-size: 13px;
+  color: #555;
+  padding: 6px 0;
+  padding-left: 16px;
+  position: relative;
+}
+
+.subBenefitItem::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #a0a0a0;
+}
+
+.subActionRow {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.subBtn {
+  font-size: 13px;
+  padding: 10px 24px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.subBtn:hover {
+  background: var(--foreground);
+  color: #fff;
+  border-color: var(--foreground);
+}
+
+.subBtnPrimary {
+  font-size: 13px;
+  padding: 10px 24px;
+  border: 1px solid var(--foreground);
+  background: var(--foreground);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.subBtnPrimary:hover {
+  opacity: 0.85;
+}
+
+/* === Points Section === */
+.pointsSection {
+  margin-top: 8px;
+}
+
+.pointsSummary {
+  background: #fff;
+  padding: 32px 40px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.pointsTotal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pointsTotalLabel {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.pointsTotalValue {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.pointsTotalUnit {
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 4px;
+}
+
+.pointsBreakdown {
+  display: flex;
+  gap: 40px;
+  padding-left: 48px;
+  border-left: 1px solid #eee;
+}
+
+.pointsBreakdownItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pointsBreakdownLabel {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.pointsBreakdownValue {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.pointsTable {
+  background: #fff;
+  width: 100%;
+}
+
+.pointsTableHeader {
+  display: flex;
+  padding: 14px 40px;
+  background: #fafafa;
+  border-bottom: 1px solid #eee;
+  font-size: 13px;
+  font-weight: 600;
+  color: #888;
+}
+
+.pointsTableRow {
+  display: flex;
+  padding: 16px 40px;
+  border-bottom: 1px solid #f5f5f5;
+  font-size: 13px;
+  color: var(--foreground);
+  align-items: center;
+}
+
+.pointsCol1 { flex: 1.2; }
+.pointsCol2 { flex: 2.5; }
+.pointsCol3 { flex: 1; text-align: right; }
+.pointsCol4 { flex: 1; text-align: right; }
+
+.pointsPlus {
+  color: #2d8f2d;
+  font-weight: 600;
+}
+
+.pointsMinus {
+  color: #c0392b;
+  font-weight: 600;
+}
+
+/* === Wishlist Section === */
+.wishlistSection {
+  margin-top: 8px;
+}
+
+/* === Coupon Section === */
+.couponSection {
+  margin-top: 8px;
+}
+
+.couponCard {
+  background: #fff;
+  padding: 24px 40px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.couponInfo h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 6px;
+}
+
+.couponInfo p {
+  font-size: 12px;
+  color: #a0a0a0;
+}
+
+.couponDiscount {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary, #e65c00);
+}
+
+/* === Restock Alert Section === */
+.restockSection {
+  margin-top: 8px;
+}
+
+/* === Inquiry Section === */
+.inquirySection {
+  margin-top: 8px;
+}
+
+.inquiryBtn {
+  font-size: 13px;
+  padding: 12px 32px;
+  border: 1px solid var(--foreground);
+  background: var(--foreground);
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  margin-bottom: 24px;
+  transition: opacity 0.2s;
+}
+
+.inquiryBtn:hover {
+  opacity: 0.85;
+}
+
+.inquiryCard {
+  background: #fff;
+  padding: 24px 40px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inquiryCardLeft h3 {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--foreground);
+  margin-bottom: 4px;
+}
+
+.inquiryCardLeft p {
+  font-size: 12px;
+  color: #a0a0a0;
+}
+
+.inquiryStatusPending {
+  font-size: 12px;
+  color: #e65c00;
+  font-weight: 600;
+}
+
+.inquiryStatusDone {
+  font-size: 12px;
+  color: #2d8f2d;
+  font-weight: 600;
+}
+
+/* === Profile Edit Section === */
+.editSection {
+  margin-top: 8px;
+}
+
+.editCard {
+  background: #fff;
+  padding: 32px 40px;
+}
+
+.editRow {
+  display: flex;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.editLabel {
+  width: 120px;
+  font-size: 14px;
+  color: #888;
+  flex-shrink: 0;
+}
+
+.editValue {
+  flex: 1;
+  font-size: 14px;
+  color: var(--foreground);
+}
+
+.editBtn {
+  font-size: 12px;
+  padding: 6px 16px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.editBtn:hover {
+  background: var(--foreground);
+  color: #fff;
+  border-color: var(--foreground);
+}
+
+/* === Withdraw Section === */
+.withdrawSection {
+  margin-top: 8px;
+}
+
+.withdrawCard {
+  background: #fff;
+  padding: 32px 40px;
+}
+
+.withdrawCard p {
+  font-size: 14px;
+  color: #555;
+  line-height: 2;
+  margin-bottom: 24px;
+}
+
+.withdrawBtn {
+  font-size: 13px;
+  padding: 10px 24px;
+  border: 1px solid #c0392b;
+  color: #c0392b;
+  background: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.withdrawBtn:hover {
+  background: #c0392b;
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .accountLayout {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .sidebarNav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .profileCard {
+    flex-direction: column;
+  }
+
+  .profileStats {
+    border-top: 1px solid #eee;
+  }
+
+  .statItem {
+    flex: 1;
+    border-left: none;
+  }
+
+  .statItem + .statItem {
+    border-left: 1px solid #eee;
+  }
+
+  .pointsSummary {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .pointsBreakdown {
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+  }
+}
