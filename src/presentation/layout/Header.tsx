@@ -30,9 +30,7 @@ export default function Header() {
         
         <nav className={styles.rightNav}>
           <Link href="/membership">Membership</Link>
-          <Link href="/account">Account</Link>
-          <Link href="/register">Register</Link>
-          <Link href="/login">Login</Link>
+          <Link href="/account">Mypage</Link>
           <div className={styles.icons}>
             <button aria-label="Cart" className={styles.iconButton}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
