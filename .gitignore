@@ -20,5 +20,13 @@ dist-ssr
 *.suo
 *.ntvs*
 *.njsproj
-*.sln
+.sln
 *.sw?
+
+# Next.js
+.next/
+out/
+build/
+
+# production
+/build
